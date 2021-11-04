@@ -71,8 +71,17 @@ router.get('/:id', async (req, res, next) =>{
           });
           return res.send(recipeInDb);
         } else {
-          let recipeInApi = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}`);
-          return res.send(recipeInApi.data);
+          const recipeInApi = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}`);
+            return res.json({
+                img: recipeInApi.data.image,
+                name: recipeInApi.data.title,
+                diet: recipeInApi.data.diets,
+                dish: recipeInApi.data.dishTypes,
+                summary: recipeInApi.data.summary,
+                score: recipeInApi.data.spoonacularScore,
+                healthy: recipeInApi.data.healthScore,
+                steps: recipeInApi.data.analyzedInstructions[0]?.steps.map(el => {return { step: el.number + ": " + el.step, }}),
+            })
         }
       } catch (error) {
         next(error);
