@@ -4,9 +4,40 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('recipe', {
+    id: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      allowNull: false,
+      primaryKey: true
+    },
     name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
+    summary: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    score: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    healthy: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    steps: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    // //Sirve para hacer una distión entre los que me trae la API y los que creo en la Base de Datos
+    // createdInDb: {
+    //   type: DataTypes.BOOLEAN,
+    //   allowNull: false,
+    //   defaultValue: true,
+    // }
+  },
+  {
+    timestamps: false
   });
 };
