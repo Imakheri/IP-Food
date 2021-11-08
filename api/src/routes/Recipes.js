@@ -7,13 +7,14 @@ const { Recipe, Diet } = require('../db');
 const router = Router();
 
 const getApiInfo = async () => {
-    const getInfo = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true`)
+    const getInfo = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=${20}`)
     .catch(error => console.log(error))
     const info = await getInfo.data.results.map (el => {
         return {
             id: el.id,
             name: el.title,
             summary: el.summary,
+            dish: el.dishTypes,
             score: el.spoonacularScore,
             healthy: el.healthScore,
             step: el.analyzedInstructions[0]?.steps.map(el => {return { step: el.number + ": " + el.step, }}),
@@ -60,7 +61,7 @@ router.get('/', async (req, res, next) => {
     }
 })
 
-//////////////////////////////////////////////////////GET POR ID/////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////// GET POR ID /////////////////////////////////////////////////////////////////////
 
 router.get('/:id', async (req, res, next) =>{
     const { id } = req.params;

@@ -20,6 +20,7 @@ router.post('/', async (req, res, next) => {
             score,
             healthy,
             step,
+            diet
             // createdInDb
         })
         

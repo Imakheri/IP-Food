@@ -9,9 +9,8 @@ const { Diet } = require('../db');
 const router = Router();
 
 router.get('/', async (req, res, next) => {
-    const dietType = ['Gluten Free','Ketogenic','Vegetarian','Lacto-Vegetarian','Ovo-Vegetarian','Vegan','Pescetarian','Paleo','Primal','Low FODMAP','Whole30'];
+    const dietType = ['gluten free','dairy free','vegetarian','lacto vegetarian','lacto ovo vegetarian','ovo vegetarian','vegan','pescatarian','paleolithic','primal','fodmap friendly','whole30'];
     dietType.forEach ( el=> {
-        console.log(el)
         Diet.findOrCreate({
             where: { name: el }
         })
