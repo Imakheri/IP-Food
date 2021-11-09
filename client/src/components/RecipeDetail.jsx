@@ -19,27 +19,58 @@ export default function RecipeDetail(){
         <div className='recipeDetail'>
             {
                 myRecipe?
-                <div>
-                    <h1>{myRecipe.name}</h1>
-                    <img src= {myRecipe.img} alt="image not found"/>
-                    {
-                        myRecipe.dish ?
-                        <h2>Dish Type: {myRecipe.dish}</h2> : null
-                    }
-                    <h3>Diet Type: {myRecipe.diet + ' '}</h3>
-                    <div dangerouslySetInnerHTML={{ __html: myRecipe.summary }}/>
-                    <h5>Score: {myRecipe.score}</h5>
-                    <h5>Healthyness Level: {myRecipe.healthy}</h5>
+                <div className='recipeCard'>
+
+                    <div className='recipeTitle'>
+                        <h1>{myRecipe.name}</h1>
+                    </div>
+
+                    <div className='recipeGroup'>
+                        <div className='imgDetail'>
+                        <img className='recipeImage' src= {myRecipe.img} alt="image not found"/>
+                        </div>
+                    <div className='recipeInfo'>
+                        {
+                            myRecipe.dish ?
+                            <div className='recipeType'><h2>Dish Type: {myRecipe.dish}</h2></div> : null
+                        }
+
+                        <div>
+                        {
+                            !myRecipe.createdInDb ?
+                            myRecipe.diets + ' '
+                            : myRecipe.diets.map(el => {return el.name}) 
+            
+                        }
+                        </div>
+
+                            <div className='recipeSummary'>
+                                <p><div dangerouslySetInnerHTML={{ __html: myRecipe.summary }}/></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='recipeScores'>
+                        <div className='recipeScore'>
+                            <h2>Score: {myRecipe.score}</h2>
+                        </div>
+                        <div className='recipeHealthy'>
+                            <h2>Healthyness Level: {myRecipe.healthy}</h2>
+                        </div>
+                    </div>
                     {
                         myRecipe.steps ?
-                        <h5>Steps: <div dangerouslySetInnerHTML={{ __html: myRecipe.steps }}/></h5> : null
+                        <div classame='recipeSteps'>
+                            <div dangerouslySetInnerHTML={{ __html: myRecipe.steps }}/>
+                        </div> : null
 
                     }
                 </div> 
                 
                 : <p>Recipe not found</p>
             }
-            <Link to='/home'><button>Go Back</button></Link>
+            <div className='recipeButton'>
+            <Link to='/home'><button className='refreshButton'>Go Back</button></Link>
+            </div>
         </div>
     )
 }

@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { postRecipe, getDiets } from '../actions/index';
 import { useDispatch , useSelector } from 'react-redux';
+import './styles/CreateRecipe.css';
 
 export default function CreateRecipe(){
     const dispatch = useDispatch();
@@ -32,10 +33,12 @@ export default function CreateRecipe(){
     }
 
     function handleChangeCheckbox(e){
+        if(e.target.checked){
         setInput({
             ...input,
-            diets : e.target.value
+            diets : [...input.diets, e.target.value]
         })
+        }
     }
 
     function handleOnSubmit(e){
@@ -54,9 +57,9 @@ export default function CreateRecipe(){
     }
 
     return(
-        <div>
-            <Link to= '/home'><button>Back</button></Link>
-            <h1>¡Create your own recipe!</h1>
+        <div className='createContainer'>
+            <Link to= '/home'><button className='refreshButton'>Back</button></Link>
+            <h1>¡Share your recipe with the whole world!</h1>
             <form onSubmit={(e) => handleOnSubmit(e)}>
                 <div>
                     <label>Name:</label>
@@ -82,21 +85,17 @@ export default function CreateRecipe(){
                     <label>Steps:</label>
                     <input type='text' value={input.steps} name='steps' onChange={(e) => handleChange(e)} />
                 </div>
+
                 <div>
-                    <label>Diets:</label>
-                    <label><input type='checkbox' value={input.diets} name='gluten free' onChange={(e) => handleChangeCheckbox(e)}/>Gluten Free</label>
-                    <label><input type='checkbox' value={input.diets} name='dairy free' onChange={(e) => handleChangeCheckbox(e)}/>Dairy Fre</label>
-                    <label><input type='checkbox' value={input.diets} name='vegetarian' onChange={(e) => handleChangeCheckbox(e)}/>Vegetarian</label>
-                    {/* <label><input type='checkbox' value='lacto vegetarian' name='lacto vegetarian' />Lacto-Vegetarian</label>
-                    <label><input type='checkbox' value='ovo vegetarian' name='ovo vegetarian' />Ovo-Vegetarian</label> */}
-                    <label><input type='checkbox' value={input.diets} name='lacto ovo vegetarian' onChange={(e) => handleChangeCheckbox(e)}/>Lacto-Ovo-Vegetarian</label>
-                    <label><input type='checkbox' value={input.diets} name='vegan' onChange={(e) => handleChangeCheckbox(e)}/>Vegan</label>
-                    <label><input type='checkbox' value={input.diets} name='pescatarian' onChange={(e) => handleChangeCheckbox(e)}/>Pescatarian</label>
-                    <label><input type='checkbox' value={input.diets} name='paleolithic' onChange={(e) => handleChangeCheckbox(e)}/>Paleolithic</label>
-                    <label><input type='checkbox' value={input.diets} name='primal' onChange={(e) => handleChangeCheckbox(e)}/>Primal</label>
-                    <label><input type='checkbox' value={input.diets} name='fodmap frienly' onChange={(e) => handleChangeCheckbox(e)}/>fodmap friendly</label>
-                    <label><input type='checkbox' value={input.diets} name='whole30' onChange={(e) => handleChangeCheckbox(e)}/>Whole30</label>
+                {
+                    diets.map(el => <div>
+                                        <label>{el.name}</label>
+                                            <input type='checkbox' value={el.name} name={el.name} onChange={(e) => handleChangeCheckbox(e)} />
+                                    </div>)
+
+                }
                 </div>
+
                 <div>
                     <button type='submit'>Create</button>
                 </div>

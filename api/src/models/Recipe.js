@@ -35,11 +35,11 @@ module.exports = (sequelize) => {
       allowNull: true
     },
     // //Sirve para hacer una distión entre los que me trae la API y los que creo en la Base de Datos
-    // createdInDb: {
-    //   type: DataTypes.BOOLEAN,
-    //   allowNull: false,
-    //   defaultValue: true,
-    // }
+    createdInDb: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true,
+    }
   },
   {
     timestamps: false

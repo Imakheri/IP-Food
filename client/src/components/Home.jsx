@@ -100,16 +100,18 @@ return (
             <div className='pages'>
                 <Pages recipesPerPage={recipesPerPage} allRecipes={allRecipes.length} pages={pages} />
             </div>
-            <div className='recipes'>
-                {
-                currentRecipes?.map((el) => {
-                    return(
-                        <div>
-                                <Recipe name={el.name} image={el.img} diets={el.diets} id={el.id} key={el.id}/>
-                        </div>
-                    );
-                })
+            <div className='background'>
+                <div className='recipes'>
+                    {
+                        currentRecipes?.map((el) => {
+                            return(
+                                <div>
+                                    <Recipe name={el.name} image={el.img} diets={!el.createdInDb ? el.diets : el.diets.map (el => el.name) } id={el.id} key={el.id}/>
+                                </div>
+                        );
+                    })
                 }
+                </div>
             </div>
         </div>
     </div>

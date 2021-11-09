@@ -49,7 +49,6 @@ export function getRecipeByName(name){
 export function getDiets(){
     return async function (dispatch){
         var json = await axios.get('http://localhost:3001/types', {
-
         });
         return dispatch ({
             type: 'GET_DIETS',
@@ -65,6 +64,7 @@ export function postRecipe(payload){
         return response;
     }
 }
+
 
 export function getDetail(id) {
     return async function (dispatch) {

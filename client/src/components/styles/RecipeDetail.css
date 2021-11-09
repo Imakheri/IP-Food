@@ -1,4 +1,53 @@
 .recipeDetail{
-    border: 1px solid blue;
-    color: red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    line-height: 2;
+    background: linear-gradient(black, #3a140f)
+}
+.recipeCard{
+    border: 5px solid #406343;
+    border-radius: 30px;
+    max-width: 70vw;
+    min-height: 80vh;
+    padding: 10px 40px;
+    margin-bottom: 15px;
+    background-color: #32502e7e;
+    color: white;
+}
+.recipeGroup{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+.imgDetail{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 50%;
+}
+.recipeImage{
+    border-radius: 25px;
+    
+}
+.recipeInfo{
+    width: 50%;
+    
+}
+.recipeSummary{
+    font-size: 14px;
+    
+}
+.recipeScores{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.recipeHealthy{
+    margin-left: 100px;
 }

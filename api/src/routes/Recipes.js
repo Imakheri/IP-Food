@@ -7,7 +7,7 @@ const { Recipe, Diet } = require('../db');
 const router = Router();
 
 const getApiInfo = async () => {
-    const getInfo = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=${20}`)
+    const getInfo = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=4188d988138c4aa48f3d5dd95cbf87f5&addRecipeInformation=true&number=${20}`)
     .catch(error => console.log(error))
     const info = await getInfo.data.results.map (el => {
         return {
@@ -72,7 +72,7 @@ router.get('/:id', async (req, res, next) =>{
           });
           return res.send(recipeInDb);
         } else {
-          const recipeInApi = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}`);
+          const recipeInApi = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=4188d988138c4aa48f3d5dd95cbf87f5`);
             return res.json({
                 img: recipeInApi.data.image,
                 name: recipeInApi.data.title,

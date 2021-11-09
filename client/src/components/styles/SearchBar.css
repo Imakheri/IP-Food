@@ -1,14 +1,15 @@
 .input{
-    width: 170px;
+    width: 200px;
     height: 28px;
     border: none;
     border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.301);
+    background-color: rgba(0, 0, 0, 0.616);
     outline: none;
     margin-right: 5px;
 }
 ::placeholder {
-    color: white
+    color: white;
+    font-size: 16px;
 }
 .searchButton {
     width: 70px;
