@@ -12,8 +12,11 @@ router.get('/', async (req, res, next) => {
     const dietType = ['gluten free','dairy free','vegetarian','lacto vegetarian','lacto ovo vegetarian','ovo vegetarian','vegan','pescatarian','paleolithic','primal','fodmap friendly','whole30'];
     dietType.forEach ( el=> {
         Diet.findOrCreate({
-            where: { name: el }
-        })
+            where: { name: el },
+            defaults:{
+                name: el,
+            },
+        });
     })
     const allDiets = await Diet.findAll();
     res.send(allDiets)

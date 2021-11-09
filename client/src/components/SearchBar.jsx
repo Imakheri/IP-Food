@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getRecipeByName } from '../actions';
+import './styles/SearchBar.css';
 
 export default function SearchBar(){
     const dispatch = useDispatch();
@@ -15,13 +16,13 @@ export default function SearchBar(){
     function handleOnSubmit(e){
         e.preventDefault();
         dispatch(getRecipeByName(name));
-        setName('');
+        setName(' ');
     }
 
     return (
         <div>
-            <input type = 'text' placeholder='Search...' onChange={(e) => handleChange(e)}/>
-            <button type='submit' onClick={(e) => handleOnSubmit(e)}>Search</button>
+            <input className='input' type = 'text' placeholder='Search...' onChange={(e) => handleChange(e)}/>
+            <button className='searchButton' type='submit' onClick={(e) => handleOnSubmit(e)}>Search</button>
         </div>
     )
 }

@@ -1,0 +1,14 @@
+.containerRecipe{
+    margin: 20px;
+    width: 350px;
+    height: 430px;
+    border: 4px solid #406343;
+    background-color: #32502e7e;
+    border-radius: 20px;
+    color: white;
+}
+
+
+recipeImage { 
+    border-radius: 15px;
+}

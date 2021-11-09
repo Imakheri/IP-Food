@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles/Pages.css';
 
 export default function Pages({recipesPerPage, allRecipes, pages}) {
     const pageNumbers = [];

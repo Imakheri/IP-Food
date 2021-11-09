@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import Recipe from './Recipe';
 import Pages from './Pages';
 import SearchBar from './SearchBar';
+import './styles/Home.css'
 
 export default function Home(){
 
@@ -51,48 +52,65 @@ export default function Home(){
 
 return (
     <div>
-        <Link to='/recipe'>¡Create your own recipe!</Link>
-        <button onClick={e=> {handleClick(e)}}>Refresh</button>
         <div>
-            {/* Filtrar por orden alfabetico */}
-            <select onChange={e => handleSort(e)}>
-                <option value='asc'>A - Z</option>
-                <option value='desc'>Z - A</option>
-            </select>
-            {/* Filtrado por puntuación */}
-            <select onChange={e => handleSortScore(e)}>
-                <option value='asc'>Menor a mayor</option>
-                <option value='desc'>Mayor a menor</option>
-            </select>
-            {/* FIltrar por tipo de dieta */}
-            <select onChange={e => handleFilterStatus(e)}>
-                <option value='All'>All</option>
-                <option value='gluten free'>Gluten Free</option>
-                <option value='dairy free'>Dairy Free</option>
-                <option value='vegetarian'>Vegetarian</option>
-                <option value='lacto-vegetarian'>Lacto-Vegetarian</option>
-                <option value='ovo-vegetarian'>Ovo-Vegetarian</option>
-                <option value='vegan'>Vegan</option>
-                <option value='pescatarian'>Pescetarian</option>
-                <option value='paleolithic'>Paleolithic</option>
-                <option value='primal'>Primal</option>
-                <option value='fodmap friendly'>Low FODMAP</option>
-                <option value='whole30'>Whole30</option>
-            </select>
-            <Pages recipesPerPage={recipesPerPage} allRecipes={allRecipes.length} pages={pages} />
-            <SearchBar />
-            {
-              currentRecipes?.map((el) => {
-                  return(
-                      <fragment className='recipe'>
-                          <Link to={'/home/' + el.id}>
-                              <Recipe name={el.name} image={el.img} diets={el.diets} key={el.id} />
-                          </Link>
-                      </fragment>
-                  );
-              })
-            }
-
+            <nav className='navbar'>
+                <div className='create'>
+                    <Link to='/recipe'><button className='createButton'>¡Create your own recipe!</button></Link>
+                </div>
+                <div className='refresh'>
+                    <button className='refreshButton' onClick={e=> {handleClick(e)}}>Refresh</button>
+                </div>
+                <div className='filters'>
+                    {/* Filtrar por orden alfabetico */}
+                    <div className='alphabethic'>
+                        <select className='alpha' onChange={e => handleSort(e)}>
+                            <option value='asc'>A - Z</option>
+                            <option value='desc'>Z - A</option>
+                        </select>
+                    </div>
+                    {/* Filtrado por puntuación */}
+                    <div>
+                        <select className='score' onChange={e => handleSortScore(e)}>
+                            <option value='asc'>Menor a mayor</option>
+                            <option value='desc'>Mayor a menor</option>
+                        </select>
+                    </div>
+                    {/* FIltrar por tipo de dieta */}
+                    <div>
+                        <select className='diet' onChange={(e) => handleFilterStatus(e)}>
+                            <option value='All'>All</option>
+                            <option value='gluten free'>Gluten Free</option>
+                            <option value='dairy free'>Dairy Free</option>
+                            <option value='vegetarian'>Vegetarian</option>
+                            <option value='lacto ovo vegetarian'>Lacto-Ovo-Vegetarian</option>
+                            <option value='ovo vegetarian'>Ovo-Vegetarian</option>
+                            <option value='vegan'>Vegan</option>
+                            <option value='pescatarian'>Pescetarian</option>
+                            <option value='paleolithic'>Paleolithic</option>
+                            <option value='primal'>Primal</option>
+                            <option value='fodmap friendly'>Low FODMAP</option>
+                            <option value='whole30'>Whole30</option>
+                        </select>
+                    </div>
+                </div>
+                <div className='searchbar'>
+                    <SearchBar />
+                </div>
+            </nav>
+            <div className='pages'>
+                <Pages recipesPerPage={recipesPerPage} allRecipes={allRecipes.length} pages={pages} />
+            </div>
+            <div className='recipes'>
+                {
+                currentRecipes?.map((el) => {
+                    return(
+                        <div>
+                                <Recipe name={el.name} image={el.img} diets={el.diets} id={el.id} key={el.id}/>
+                        </div>
+                    );
+                })
+                }
+            </div>
         </div>
     </div>
 )

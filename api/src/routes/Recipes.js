@@ -81,7 +81,7 @@ router.get('/:id', async (req, res, next) =>{
                 summary: recipeInApi.data.summary,
                 score: recipeInApi.data.spoonacularScore,
                 healthy: recipeInApi.data.healthScore,
-                steps: recipeInApi.data.analyzedInstructions[0]?.steps.map(el => {return { step: el.number + ": " + el.step, }}),
+                steps: recipeInApi.data.instructions
             })
         }
       } catch (error) {

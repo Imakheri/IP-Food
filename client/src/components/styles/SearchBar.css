@@ -1,0 +1,21 @@
+.input{
+    width: 170px;
+    height: 28px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.301);
+    outline: none;
+    margin-right: 5px;
+}
+::placeholder {
+    color: white
+}
+.searchButton {
+    width: 70px;
+    height: 30px;
+    background-color: #406343;
+    color: white;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+}

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getDetail } from '../actions/index';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import './styles/RecipeDetail.css';
 
 export default function RecipeDetail(){
     const { id } = useParams()
@@ -14,24 +15,29 @@ export default function RecipeDetail(){
     }, [dispatch])
 
     const myRecipe = useSelector((state) => state.detail)
-    console.log(myRecipe)
-    console.log(myRecipe.steps)
     return (
-        <div>
+        <div className='recipeDetail'>
             {
                 myRecipe?
                 <div>
                     <h1>{myRecipe.name}</h1>
-                    <img src= {myRecipe.img} alt="image not found" width="500px" height="700px"/>
-                    <h2>Dish Type: {myRecipe.dish}</h2>
+                    <img src= {myRecipe.img} alt="image not found"/>
+                    {
+                        myRecipe.dish ?
+                        <h2>Dish Type: {myRecipe.dish}</h2> : null
+                    }
                     <h3>Diet Type: {myRecipe.diet + ' '}</h3>
-                    <h5>Summary: {myRecipe.summary}</h5>
+                    <div dangerouslySetInnerHTML={{ __html: myRecipe.summary }}/>
                     <h5>Score: {myRecipe.score}</h5>
                     <h5>Healthyness Level: {myRecipe.healthy}</h5>
-                    <h5>Pasos: {myRecipe.steps.map(el => el.step)}</h5>
+                    {
+                        myRecipe.steps ?
+                        <h5>Steps: <div dangerouslySetInnerHTML={{ __html: myRecipe.steps }}/></h5> : null
+
+                    }
                 </div> 
                 
-                : <p>Loading...</p>
+                : <p>Recipe not found</p>
             }
             <Link to='/home'><button>Go Back</button></Link>
         </div>

@@ -11,7 +11,6 @@ export function getRecipes() {
 }
 
 export function filterRecipesByDiets(payload){
-    console.log(payload);
     return {
         type: 'FILTER_BY_DIET',
         payload
@@ -60,7 +59,7 @@ export function getDiets(){
 }
 
 export function postRecipe(payload){
-    return async function (dispatch){
+    return async function (){
         const response = await axios.post('http://localhost:3001/recipe', payload)
         console.log(response);
         return response;

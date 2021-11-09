@@ -7,20 +7,22 @@ router.post('/', async (req, res, next) => {
     let {
         name,
         summary,
+        img,
         score,
         healthy,
-        step,
-        diet
+        steps,
+        diets
     } = req.body
 
     try {
         const recipeCreated = await Recipe.create ({
             name,
             summary,
+            img,
             score,
             healthy,
-            step,
-            diet
+            steps,
+            diets
             // createdInDb
         })
         

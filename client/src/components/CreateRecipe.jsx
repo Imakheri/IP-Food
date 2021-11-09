@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { postRecipe, getDiets } from '../actions/index';
 import { useDispatch , useSelector } from 'react-redux';
 
@@ -11,11 +11,14 @@ export default function CreateRecipe(){
     const [input, setInput] = useState({
         name : '',
         summary : '',
-        score : '',
+        img: '',
+        score: '',
         healthy : '',
-        steps : '',
+        steps: '',
         diets: []
     });
+
+    console.log('Este es el input', input);
 
     useEffect(() => {
         dispatch(getDiets());
@@ -28,16 +31,24 @@ export default function CreateRecipe(){
         })
     }
 
+    function handleChangeCheckbox(e){
+        setInput({
+            ...input,
+            diets : e.target.value
+        })
+    }
+
     function handleOnSubmit(e){
         e.preventDefault()
         dispatch(postRecipe(input))
-        alert('Recipe Created :O')
+        alert('¡Recipe created successfully!')
         setInput({
             name : '',
             summary : '',
-            score : '',
-            healthy : '',
-            steps : '',
+            img: '',
+            score: '',
+            healthy: '',
+            steps: '',
             diets: []
         });
     }
@@ -56,27 +67,35 @@ export default function CreateRecipe(){
                     <input type='text' value={input.summary} name='summary' onChange={(e) => handleChange(e)} required/>
                 </div>
                 <div>
+                    <label>Image:</label>
+                    <input type='url' value={input.img} name='img' onChange={(e) => handleChange(e)}/>
+                </div>
+                <div>
                     <label>Score:</label>
-                    <input type='number' value={input.score} name='score' onChange={(e) => handleChange(e)} />
+                    <input type='number' min='0' max='100' value={input.score} name='score' onChange={(e) => handleChange(e)} />
                 </div>
                 <div>
                     <label>Healthyness score:</label>
-                    <input type='number' value={input.healthy} name='healthy' onChange={(e) => handleChange(e)} />
+                    <input type='number' min='0' max='100' value={input.healthy} name='healthy' onChange={(e) => handleChange(e)} />
+                </div>
+                <div>
+                    <label>Steps:</label>
+                    <input type='text' value={input.steps} name='steps' onChange={(e) => handleChange(e)} />
                 </div>
                 <div>
                     <label>Diets:</label>
-                    <label><input type='checkbox' value='gluten free' name='gluten free' />Gluten Free</label>
-                    <label><input type='checkbox' value='dairy free' name='dairy free' />Dairy Fre</label>
-                    <label><input type='checkbox' value='vegetarian' name='vegetarian' />Vegetarian</label>
-                    <label><input type='checkbox' value='lacto vegetarian' name='lacto vegetarian' />Lacto-Vegetarian</label>
-                    <label><input type='checkbox' value='ovo vegetarian' name='ovo vegetarian' />Ovo-Vegetarian</label>
-                    <label><input type='checkbox' value='lacto ovo vegetarian' name='lacto ovo vegetarian' />Lacto-Ovo-Vegetarian</label>
-                    <label><input type='checkbox' value='vegan' name='vegan' />Vegan</label>
-                    <label><input type='checkbox' value='pescatarian' name='pescatarian' />Pescatarian</label>
-                    <label><input type='checkbox' value='paleolithic' name='paleolithic' />Paleolithic</label>
-                    <label><input type='checkbox' value='primal' name='primal' />Primal</label>
-                    <label><input type='checkbox' value='fodmap friendly' name='fodmap frienly' />fodmap friendly</label>
-                    <label><input type='checkbox' value='whole30' name='whole30' />Whole30</label>
+                    <label><input type='checkbox' value={input.diets} name='gluten free' onChange={(e) => handleChangeCheckbox(e)}/>Gluten Free</label>
+                    <label><input type='checkbox' value={input.diets} name='dairy free' onChange={(e) => handleChangeCheckbox(e)}/>Dairy Fre</label>
+                    <label><input type='checkbox' value={input.diets} name='vegetarian' onChange={(e) => handleChangeCheckbox(e)}/>Vegetarian</label>
+                    {/* <label><input type='checkbox' value='lacto vegetarian' name='lacto vegetarian' />Lacto-Vegetarian</label>
+                    <label><input type='checkbox' value='ovo vegetarian' name='ovo vegetarian' />Ovo-Vegetarian</label> */}
+                    <label><input type='checkbox' value={input.diets} name='lacto ovo vegetarian' onChange={(e) => handleChangeCheckbox(e)}/>Lacto-Ovo-Vegetarian</label>
+                    <label><input type='checkbox' value={input.diets} name='vegan' onChange={(e) => handleChangeCheckbox(e)}/>Vegan</label>
+                    <label><input type='checkbox' value={input.diets} name='pescatarian' onChange={(e) => handleChangeCheckbox(e)}/>Pescatarian</label>
+                    <label><input type='checkbox' value={input.diets} name='paleolithic' onChange={(e) => handleChangeCheckbox(e)}/>Paleolithic</label>
+                    <label><input type='checkbox' value={input.diets} name='primal' onChange={(e) => handleChangeCheckbox(e)}/>Primal</label>
+                    <label><input type='checkbox' value={input.diets} name='fodmap frienly' onChange={(e) => handleChangeCheckbox(e)}/>fodmap friendly</label>
+                    <label><input type='checkbox' value={input.diets} name='whole30' onChange={(e) => handleChangeCheckbox(e)}/>Whole30</label>
                 </div>
                 <div>
                     <button type='submit'>Create</button>

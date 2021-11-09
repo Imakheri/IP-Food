@@ -1,0 +1,89 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: #D8B6A4;
+    width: 100vw;
+    height: 4vh;
+}
+
+.create{
+    display: flex;
+    align-items: center;
+}
+.createButton{
+    width: 170px;
+    height: 30px;
+    background-color: #406343;
+    color: white;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+}
+.refresh{
+    display: flex;
+    align-items: center;
+}
+.refreshButton {
+    width: 80px;
+    height: 30px;
+    background-color: #406343;
+    color: white;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+}
+
+.filters{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 600px;
+}
+.alpha{
+    background-color: #9b9262;
+    height: 25px;
+    color: white;;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+}
+.score{
+    background-color: #9b9262;
+    color: white;;
+    border: none;
+    height: 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+}
+.diet{
+    background-color: #9b9262;
+    color: white;;
+    border: none;
+    height: 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.pages{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    
+}
+.searchbar{
+    display: flex;
+    align-items: center;
+}
+.recipes{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    background: linear-gradient(black, #3a140f)
+}
