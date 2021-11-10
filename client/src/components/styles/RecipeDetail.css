@@ -31,6 +31,8 @@
 }
 .recipeImageDetail{
     border-radius: 25px;
+    max-width: 400px;
+    max-height: 500px;
 }
 .recipeInfo{
     width: 50%;

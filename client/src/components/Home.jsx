@@ -34,6 +34,7 @@ export default function Home(){
 
     function handleFilterStatus(e){
         dispatch(filterRecipesByDiets(e.target.value))
+        setCurrentPage(1);
     }
 
     function handleSort(e){
@@ -84,7 +85,7 @@ return (
                     {/* FIltrar por tipo de dieta */}
                     <div>
                         <div>
-                            Filter By Diet Type
+                            Filter By Diet Type:
                         </div>
                         <select className='diet' onChange={(e) => handleFilterStatus(e)}>
                             <option value='All'>All</option>
@@ -110,9 +111,10 @@ return (
                 <Pages recipesPerPage={recipesPerPage} allRecipes={allRecipes.length} pages={pages} />
             </div>
             <div className='background'>
+                
             <div className='recipes'>
-            {currentRecipes.length === 0 ? (
-                <h2 className='Error'>No recipes found</h2>
+            {currentRecipes.length == 0 ? (
+                <h1 className='Error'>¡No recipes found!</h1>
             ) : (
                 currentRecipes?.map((e) =>{
                     return (
@@ -127,13 +129,12 @@ return (
                                     : 'https://codes.unidepix.com/img/default.png'
                                 }
                                 diets = {
-                                    'Diets: ' +
                                     (!e.createdInDb
                                         ? e.diets + ' '
                                         : e.diets.map((e) => e.name + ' ')) +
                                         '.'
                                 }
-                                />
+                            />
                         </div>
                     )
                 })

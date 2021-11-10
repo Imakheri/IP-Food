@@ -56,35 +56,63 @@ export default function CreateRecipe(){
 
     return(
         <div className='createContainer'>
-            <Link to= '/home'><button className='refreshButton'>Back</button></Link>
-            <h1>¡Share your recipe with the whole world!</h1>
+            <div className='buttonContainer'>
+                <Link to= '/home'><button className='refreshButton'>Back</button></Link>
+            </div>
             <form onSubmit={(e) => handleOnSubmit(e)}>
-                <div>
-                    <label>Name:</label>
-                    <input type='text' value={input.name} name='name' onChange={(e) => handleChange(e)} required/>
+            <div className='inputContainer'>   
+                <h1>¡Share your recipe with the whole world!</h1>
+                <div className='inputCreateContainer'>
+                    <div className='labelCreate'>
+                        <label>Name: </label>
+                    </div>
+                    <div className='inputCreate'>
+                        <input className='inputo' type='text' value={input.name} name='name' onChange={(e) => handleChange(e)} required/>
+                    </div>
                 </div>
-                <div>
-                    <label>Summary:</label>
-                    <input type='text' value={input.summary} name='summary' onChange={(e) => handleChange(e)} required/>
+                <div className='inputCreateContainer'>
+                    <div className='labelCreate'>
+                        <label>Summary:</label>
+                    </div>
+                    <div className='inputCreate'>
+                        <input className='inputo' type='text' value={input.summary} name='summary' onChange={(e) => handleChange(e)} required/>
+                    </div>
                 </div>
-                <div>
-                    <label>Image:</label>
-                    <input type='url' value={input.img} name='img' onChange={(e) => handleChange(e)} />
+                <div className='inputCreateContainer'>
+                    <div className='labelCreate'>
+                        <label>Image:</label>
+                    </div>
+                    <div className='inputCreate'>
+                        <input className='inputo' type='url' value={input.img} name='img' onChange={(e) => handleChange(e)} />
+                    </div>
                 </div>
-                <div>
-                    <label>Score:</label>
-                    <input type='number' min='0' max='100' value={input.score} name='score' onChange={(e) => handleChange(e)} required/>
+                <div className='inputCreateContainer'>
+                    <div className='labelCreate'>
+                        <label>Score: </label>
+                    </div>
+                    <div className='inputCreate'>
+                        <input className='inputo' type='number' min='0' max='100' value={input.score} name='score' onChange={(e) => handleChange(e)} required/>
+                    </div>
                 </div>
-                <div>
-                    <label>Healthyness score:</label>
-                    <input type='number' min='0' max='100' value={input.healthy} name='healthy' onChange={(e) => handleChange(e)} required/>
+                <div className='inputCreateContainer'>
+                    <div className='labelCreate1'>
+                        <label>Healthyness score:</label>
+                    </div>
+                    <div className='inputCreate'>
+                        <input className='inputo' type='number' min='0' max='100' value={input.healthy} name='healthy' onChange={(e) => handleChange(e)} required/>
+                    </div>
                 </div>
-                <div>
-                    <label>Steps:</label>
-                    <input type='text' value={input.steps} name='steps' onChange={(e) => handleChange(e)} required/>
+                <div className='inputCreateContainer'>
+                    <div className='labelCreate'>
+                        <label>Steps:</label>
+                    </div>
+                    <div className='inputCreate'>
+                        <input className='inputo' type='text' value={input.steps} name='steps' onChange={(e) => handleChange(e)} required/>
+                    </div>
                 </div>
+                    <h2>Diet Types:</h2>
 
-                <div>
+                <div className='checkboxContainer'>
                 {
                     diets.map(el => <div>
                                         <label>{el.name}</label>
@@ -93,9 +121,10 @@ export default function CreateRecipe(){
 
                 }
                 </div>
+            </div>     
 
                 <div>
-                    <button type='submit'>Create</button>
+                    <button className='buttonContainerBottom' type='submit'>Create</button>
                 </div>
             </form>
         </div>

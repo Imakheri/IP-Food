@@ -8,7 +8,7 @@ const { Recipe, Diet } = require('../db');
 const router = Router();
 
 const getApiInfo = async () => {
-    const getInfo = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${KEY}&addRecipeInformation=true&number=${50}`)
+    const getInfo = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${KEY}&addRecipeInformation=true&number=${100}`)
     .catch(error => console.log(error))
     const info = getInfo.data.results.map (el => {
         return {
@@ -51,8 +51,8 @@ router.get('/', async (req, res, next) => {
         const totalRecipes = await getAll();
         if(name) {
             const infoFilter = await totalRecipes.filter (el => el.name.toLowerCase().includes(name.toLowerCase()))
-        infoFilter.length ? 
-        res.send(infoFilter) : res.status(404).send('Recipe not found');
+        // infoFilter.length ? 
+        res.send(infoFilter)
         } else {
             res.send(totalRecipes);
         }

@@ -92,3 +92,6 @@
     min-height: calc(100vh + 10vh);
     background: linear-gradient(black, #3a140f);
 }
+.Error{
+    color: white;
+}

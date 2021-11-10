@@ -7,4 +7,71 @@
     background: linear-gradient(black, #3a140f);
     color: white;
 }
+.buttonContainer{
+    margin: 25px 0;
+}
+.inputContainer{
+    width: 35vw;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: stretch;
+    background-color: #32502e7e;
+    border: 5px solid #406343;
+    border-radius: 30px;
 
+}
+.checkboxContainer{
+    position: relative;
+    right: 40px;
+    display: grid;
+    height: 12vh;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: end;
+    font-size: 20px;
+}
+.inputCreateContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 40px;
+    font-weight: bold;
+    font-size: 22px;
+}
+.labelCreate{
+    display: flex;
+    width: 20%;
+    justify-content: center;
+    align-items: center;
+    
+}
+.labelCreate1{
+    display: flex;
+    width: 20%;
+    font-size: 16px;
+    justify-content: center;
+    align-items: cent4r;
+    
+}
+.inputCreate{
+    display: flex;
+    width: 30%;
+}
+.inputo{
+    width: 100%;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.431);
+    border: none;
+    font-size: 20px;
+}
+.buttonContainerBottom{
+    margin-top: 30px;
+    width: 100px;
+    height: 40px;
+    background-color: #406343;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+}

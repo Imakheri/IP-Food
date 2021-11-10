@@ -27,7 +27,9 @@ export default function RecipeDetail(){
 
                     <div className='recipeGroup'>
                         <div className='imgDetail'>
-                        <img className='recipeImageDetail' src= {myRecipe.img} alt="image not found"/>
+                        <img className='recipeImageDetail' src= {myRecipe.img
+                                    ? myRecipe.img
+                                    : 'https://codes.unidepix.com/img/default.png'} alt="image not found"/>
                         </div>
                     <div className='recipeInfo'>
                         {
@@ -36,11 +38,13 @@ export default function RecipeDetail(){
                         }
 
                         <div>
+                            <h2> Diet Types :
                         {
                             !myRecipe.createdInDb ?
-                            <h2>Diet Types : {myRecipe.diets + ' '}</h2>
-                            : myRecipe.diets.map(el => {return el.name}) 
+                            myRecipe.diets + ' '
+                            : myRecipe.diets.map(el => ' ' + el.name + ' ') 
                         }
+                            </h2>
                         </div>
 
                             <div className='recipeSummary'>

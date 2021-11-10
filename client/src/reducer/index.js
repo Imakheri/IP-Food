@@ -2,8 +2,7 @@ const initialState = {
     recipes: [],
     allRecipes: [],
     diets: [],
-    detail: [],
-    types: []
+    detail: []
 }
 
 function rootReducer( state = initialState, action) {
@@ -27,8 +26,8 @@ function rootReducer( state = initialState, action) {
                 recipes: recipesFiltered
             }
         case 'GET_DETAILS':
-            return {
-                ...state,
+             return {
+               ...state,
                 detail: action.payload
             }
         case 'ORDER_BY_NAME':
