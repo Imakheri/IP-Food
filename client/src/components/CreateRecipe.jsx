@@ -19,8 +19,6 @@ export default function CreateRecipe(){
         diets: []
     });
 
-    console.log('Este es el input', input);
-
     useEffect(() => {
         dispatch(getDiets());
     }, []);
@@ -71,19 +69,19 @@ export default function CreateRecipe(){
                 </div>
                 <div>
                     <label>Image:</label>
-                    <input type='url' value={input.img} name='img' onChange={(e) => handleChange(e)}/>
+                    <input type='url' value={input.img} name='img' onChange={(e) => handleChange(e)} />
                 </div>
                 <div>
                     <label>Score:</label>
-                    <input type='number' min='0' max='100' value={input.score} name='score' onChange={(e) => handleChange(e)} />
+                    <input type='number' min='0' max='100' value={input.score} name='score' onChange={(e) => handleChange(e)} required/>
                 </div>
                 <div>
                     <label>Healthyness score:</label>
-                    <input type='number' min='0' max='100' value={input.healthy} name='healthy' onChange={(e) => handleChange(e)} />
+                    <input type='number' min='0' max='100' value={input.healthy} name='healthy' onChange={(e) => handleChange(e)} required/>
                 </div>
                 <div>
                     <label>Steps:</label>
-                    <input type='text' value={input.steps} name='steps' onChange={(e) => handleChange(e)} />
+                    <input type='text' value={input.steps} name='steps' onChange={(e) => handleChange(e)} required/>
                 </div>
 
                 <div>

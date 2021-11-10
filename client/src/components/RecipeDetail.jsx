@@ -27,7 +27,7 @@ export default function RecipeDetail(){
 
                     <div className='recipeGroup'>
                         <div className='imgDetail'>
-                        <img className='recipeImage' src= {myRecipe.img} alt="image not found"/>
+                        <img className='recipeImageDetail' src= {myRecipe.img} alt="image not found"/>
                         </div>
                     <div className='recipeInfo'>
                         {
@@ -38,9 +38,8 @@ export default function RecipeDetail(){
                         <div>
                         {
                             !myRecipe.createdInDb ?
-                            myRecipe.diets + ' '
+                            <h2>Diet Types : {myRecipe.diets + ' '}</h2>
                             : myRecipe.diets.map(el => {return el.name}) 
-            
                         }
                         </div>
 

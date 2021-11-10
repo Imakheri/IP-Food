@@ -1,15 +1,16 @@
+require('dotenv').config();
 const { Router } = require('express');
 const axios = require('axios').default;
-const { API_KEY } = process.env
+const { KEY } = process.env;
 const { Recipe, Diet } = require('../db');
 // Ejemplo: const authRouter = require('./auth.js');
 
 const router = Router();
 
 const getApiInfo = async () => {
-    const getInfo = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=4188d988138c4aa48f3d5dd95cbf87f5&addRecipeInformation=true&number=${20}`)
+    const getInfo = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${KEY}&addRecipeInformation=true&number=${50}`)
     .catch(error => console.log(error))
-    const info = await getInfo.data.results.map (el => {
+    const info = getInfo.data.results.map (el => {
         return {
             id: el.id,
             name: el.title,
@@ -51,7 +52,7 @@ router.get('/', async (req, res, next) => {
         if(name) {
             const infoFilter = await totalRecipes.filter (el => el.name.toLowerCase().includes(name.toLowerCase()))
         infoFilter.length ? 
-        res.send(infoFilter) : res.status(404).send('Recipe not founded');
+        res.send(infoFilter) : res.status(404).send('Recipe not found');
         } else {
             res.send(totalRecipes);
         }
@@ -72,11 +73,11 @@ router.get('/:id', async (req, res, next) =>{
           });
           return res.send(recipeInDb);
         } else {
-          const recipeInApi = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=4188d988138c4aa48f3d5dd95cbf87f5`);
+          const recipeInApi = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${KEY}`);
             return res.json({
                 img: recipeInApi.data.image,
                 name: recipeInApi.data.title,
-                diet: recipeInApi.data.diets,
+                diets: recipeInApi.data.diets,
                 dish: recipeInApi.data.dishTypes,
                 summary: recipeInApi.data.summary,
                 score: recipeInApi.data.spoonacularScore,

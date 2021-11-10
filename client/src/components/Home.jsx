@@ -18,7 +18,7 @@ export default function Home(){
     const indexOfLastRecipe = currentPage * recipesPerPage;
     const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
     const currentRecipes = allRecipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
-
+    
     const pages = (pageNumber) => {
         setCurrentPage(pageNumber)
     }
@@ -63,20 +63,29 @@ return (
                 <div className='filters'>
                     {/* Filtrar por orden alfabetico */}
                     <div className='alphabethic'>
+                        <div>
+                            Alphabetical Sort:
+                        </div>
                         <select className='alpha' onChange={e => handleSort(e)}>
                             <option value='asc'>A - Z</option>
                             <option value='desc'>Z - A</option>
                         </select>
                     </div>
                     {/* Filtrado por puntuación */}
-                    <div>
+                    <div className='scorecontainer'>
+                        <div>
+                            Score Sort:
+                        </div>
                         <select className='score' onChange={e => handleSortScore(e)}>
-                            <option value='asc'>Menor a mayor</option>
-                            <option value='desc'>Mayor a menor</option>
+                            <option value='asc'>Lower To Higher</option>
+                            <option value='desc'>Higher To Lower</option>
                         </select>
                     </div>
                     {/* FIltrar por tipo de dieta */}
                     <div>
+                        <div>
+                            Filter By Diet Type
+                        </div>
                         <select className='diet' onChange={(e) => handleFilterStatus(e)}>
                             <option value='All'>All</option>
                             <option value='gluten free'>Gluten Free</option>
@@ -101,16 +110,35 @@ return (
                 <Pages recipesPerPage={recipesPerPage} allRecipes={allRecipes.length} pages={pages} />
             </div>
             <div className='background'>
-                <div className='recipes'>
-                    {
-                        currentRecipes?.map((el) => {
-                            return(
-                                <div>
-                                    <Recipe name={el.name} image={el.img} diets={!el.createdInDb ? el.diets : el.diets.map (el => el.name) } id={el.id} key={el.id}/>
-                                </div>
-                        );
-                    })
-                }
+            <div className='recipes'>
+            {currentRecipes.length === 0 ? (
+                <h2 className='Error'>No recipes found</h2>
+            ) : (
+                currentRecipes?.map((e) =>{
+                    return (
+                        <div>
+                            <Recipe
+                                key = {e.id}
+                                id = {e.id}
+                                name = {e.name}
+                                image = {
+                                    e.img
+                                    ? e.img
+                                    : 'https://codes.unidepix.com/img/default.png'
+                                }
+                                diets = {
+                                    'Diets: ' +
+                                    (!e.createdInDb
+                                        ? e.diets + ' '
+                                        : e.diets.map((e) => e.name + ' ')) +
+                                        '.'
+                                }
+                                />
+                        </div>
+                    )
+                })
+            )
+            }
                 </div>
             </div>
         </div>

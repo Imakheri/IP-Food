@@ -16,12 +16,11 @@ export default function SearchBar(){
     function handleOnSubmit(e){
         e.preventDefault();
         dispatch(getRecipeByName(name));
-        setName(' ');
     }
 
     return (
         <div>
-            <input className='input' type = 'text' placeholder='Search...' onChange={(e) => handleChange(e)}/>
+            <input className='input' type ='text' placeholder='Search...' onChange={(e) => handleChange(e)}/>
             <button className='searchButton' type='submit' onClick={(e) => handleOnSubmit(e)}>Search</button>
         </div>
     )

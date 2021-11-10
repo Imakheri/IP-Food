@@ -34,7 +34,7 @@ export function orderByScore(payload){
 export function getRecipeByName(name){
     return async function (dispatch){
         try{
-            var json = await axios.get ('http://localhost:3001/recipes?name=' + name);
+            var json = await axios.get('http://localhost:3001/recipes?name=' + name);
             return dispatch ({
                 type: 'GET_NAME_RECIPES',
                 payload: json.data
