@@ -19,6 +19,11 @@
     font-size: 14px;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
+}
+.createButton:active{
+    width: 168px;
+    height: 28px;
 }
 .refresh{
     display: flex;
@@ -32,6 +37,11 @@
     font-size: 14px;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
+}
+.refreshButton:active{
+    width: 78px;
+    height: 28px;
 }
 
 .filters{

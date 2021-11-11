@@ -33,6 +33,7 @@
     border-radius: 25px;
     max-width: 400px;
     max-height: 500px;
+    box-shadow: 8px 6px 10px 6px black;
 }
 .recipeInfo{
     width: 50%;

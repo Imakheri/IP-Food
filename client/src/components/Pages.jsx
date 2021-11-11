@@ -11,16 +11,19 @@ export default function Pages({recipesPerPage, allRecipes, pages}) {
     return(
         <nav>
                 <ul className='pages'>
-                    {
+                    {pageNumbers.length === 1 ? (
+                        <div></div>
+                    ) : (
                         pageNumbers?.map(number => {
                             return(
-                            <li className='numbers' key={number}>
-                                <a onClick={() => pages(number)}>{number}</a>
+                            <li key={number}>
+                                <button className='numbers' onClick={() => pages(number)}>{number}</button>
                             </li>
                             )
                         })
-                    }
+                 )}
                 </ul>
+                
         </nav>
     )
 }

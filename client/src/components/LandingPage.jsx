@@ -9,7 +9,7 @@ export default function LandingPage(){
                 <div className='landing'>
                     <div>
                         <h1>Welcome to the Henry Food App.</h1>
-                        <p>This App works like a cookbook. <br />You can search for recipes by name,diet type and even share <br /> your recipes with the whole world.</p>
+                        <p>This App works like a cookbook. <br />You can search for recipes by name, diet type and even share <br /> your recipes with the whole world.</p>
                         <Link to="/home">
                             <button>¡Go now!</button>
                         </Link>

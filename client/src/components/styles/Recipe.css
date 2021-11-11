@@ -7,6 +7,10 @@
     border-radius: 20px;
     color: white;
 }
+.containerRecipe:hover{
+    background-color: #233d2046;
+}
+
 
 
 .recipeImage { 
