@@ -2,7 +2,8 @@ const initialState = {
     recipes: [],
     allRecipes: [],
     diets: [],
-    detail: []
+    detail: [],
+    loading: false
 }
 
 function rootReducer( state = initialState, action) {
@@ -11,7 +12,8 @@ function rootReducer( state = initialState, action) {
             return {
                 ...state,
                 recipes: action.payload,
-                allRecipes: action.payload
+                allRecipes: action.payload,
+                loading: false
             }
         case 'GET_DIETS':
             return {
@@ -54,6 +56,14 @@ function rootReducer( state = initialState, action) {
                 ...state,
                 recipes: sortedArray
             }
+        case 'LESS':
+            const allRecipes = state.allRecipes;
+            const filteredByNumber = allRecipes.filter(el => el.score < 98)
+            console.log(filteredByNumber)
+            return{
+                ...state,
+                recipes: filteredByNumber
+            }
         case 'ORDER_BY_SCORE':
             let srtdArr = action.payload === 'asc'?
                 state.recipes.sort(function (a, b) {
@@ -86,6 +96,11 @@ function rootReducer( state = initialState, action) {
         case 'POST_RECIPE':
             return {
                 ...state,
+            }
+        case 'LOADING':
+            return {
+                ...state,
+                loading: true
             }
         default:
             return state;

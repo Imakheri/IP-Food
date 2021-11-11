@@ -2,6 +2,9 @@ import axios from 'axios';
 
 export function getRecipes() {
     return async function (dispatch){
+        dispatch({
+            type: 'LOADING'
+        })
         var json = await axios.get ('http://localhost:3001/recipes');
         return dispatch({
             type: 'GET_RECIPES',
@@ -78,5 +81,12 @@ export function getDetail(id) {
         } catch(error){
             console.log(error)
         }
+    }
+}
+
+export function getRecipesByNumber(){
+    return {
+        type: 'LESS',
+
     }
 }
