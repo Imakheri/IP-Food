@@ -67,7 +67,7 @@ export default function CreateRecipe(){
                         <label>Name: </label>
                     </div>
                     <div className='inputCreate'>
-                        <input className='inputo' type='text' value={input.name} name='name' onChange={(e) => handleChange(e)} required/>
+                        <input className='inputo' type='text' value={input.name} name='name' autocomplete="off" onChange={(e) => handleChange(e)} required/>
                     </div>
                 </div>
                 <div className='inputCreateContainer'>
@@ -75,7 +75,7 @@ export default function CreateRecipe(){
                         <label>Summary:</label>
                     </div>
                     <div className='inputCreate'>
-                        <input className='inputo' type='text' value={input.summary} name='summary' onChange={(e) => handleChange(e)} required/>
+                        <input className='inputo' type='text' value={input.summary} name='summary' autocomplete="off" onChange={(e) => handleChange(e)} required/>
                     </div>
                 </div>
                 <div className='inputCreateContainer'>
@@ -83,7 +83,7 @@ export default function CreateRecipe(){
                         <label>Image:</label>
                     </div>
                     <div className='inputCreate'>
-                        <input className='inputo' type='url' value={input.img} name='img' onChange={(e) => handleChange(e)} />
+                        <input className='inputo' type='url' value={input.img} name='img' autocomplete="off" onChange={(e) => handleChange(e)} />
                     </div>
                 </div>
                 <div className='inputCreateContainer'>
@@ -91,7 +91,7 @@ export default function CreateRecipe(){
                         <label>Score: </label>
                     </div>
                     <div className='inputCreate'>
-                        <input className='inputo' type='number' min='0' max='100' value={input.score} name='score' onChange={(e) => handleChange(e)} required/>
+                        <input className='inputo' type='number' min='0' max='100' value={input.score} name='score' autocomplete="off" onChange={(e) => handleChange(e)} required/>
                     </div>
                 </div>
                 <div className='inputCreateContainer'>
@@ -99,7 +99,7 @@ export default function CreateRecipe(){
                         <label>Healthyness score:</label>
                     </div>
                     <div className='inputCreate'>
-                        <input className='inputo' type='number' min='0' max='100' value={input.healthy} name='healthy' onChange={(e) => handleChange(e)} required/>
+                        <input className='inputo' type='number' min='0' max='100' value={input.healthy} name='healthy' autocomplete="off" onChange={(e) => handleChange(e)} required/>
                     </div>
                 </div>
                 <div className='inputCreateContainer'>
@@ -107,7 +107,7 @@ export default function CreateRecipe(){
                         <label>Steps:</label>
                     </div>
                     <div className='inputCreate'>
-                        <input className='inputo' type='text' value={input.steps} name='steps' onChange={(e) => handleChange(e)} required/>
+                        <input className='inputo' type='text' value={input.steps} name='steps' autocomplete="off" onChange={(e) => handleChange(e)} required/>
                     </div>
                 </div>
                     <h2>Diet Types:</h2>
