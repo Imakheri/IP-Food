@@ -1,3 +1,7 @@
+
+<hr />
+<br />
+
 <p align='left'>
     <img src='https://static.wixstatic.com/media/85087f_0d84cbeaeb824fca8f7ff18d7c9eaafd~mv2.png/v1/fill/w_160,h_30,al_c,q_85,usm_0.66_1.00_0.01/Logo_completo_Color_1PNG.webp' </img>
 </p>
@@ -8,82 +12,73 @@
   <img height="200" src="./cooking.png" />
 </p>
 
-## Objetivos del Proyecto
+## Project objectives
+- Build an App using React, Redux, Node and Sequelize.
+- Affirm and connect the concepts learned in the Bootcamp.
+- Learn best practices.
+- Learn and practice the Git workflow.
+- Use and practice "testing". 
 
-- Construir una App utlizando React, Redux, Node y Sequelize.
-- Afirmar y conectar los conceptos aprendidos en la carrera.
-- Aprender mejores prácticas.
-- Aprender y practicar el workflow de GIT.
-- Usar y practicar testing.
+## Schedules and dates
 
-## Horarios y Fechas
+The project will have a maximum duration of three weeks. In the event that they complete all the tasks before said period, they may notify their instructor to coordinate a date for the presentation of the work. 
 
-El proyecto tendrá una duración máxima de tres semanas. En el caso de que completan todas las tareas antes de dicho lapso podrán avisar a su Instructor para coordinar una fecha de presentación del trabajo (DEMO).
+## Starting
 
-## Comenzando
+1. Forking the repository to have a copy of it in your accounts
+2. Clone the repository on their computers to start working 
 
- 1. Forkear el repositorio para tener una copia del mismo en sus cuentas
- 2. Clonar el repositorio en sus computadoras para comenzar a trabajar
+You will have a `boilerplate` with the general structure of both the server and the client. 
 
-Tendrán un `boilerplate` con la estructura general tanto del servidor como de cliente.
+The minimally necessary versions are:
 
-__IMPORTANTE:__ Es necesario contar minimamente con la última versión estable de Node y NPM. Asegurarse de contar con ella para poder instalar correctamente las dependecias necesarias para correr el proyecto.
-
-Actualmente las versiónes necesarias son:
-
- * __Node__: 12.18.3 o mayor
- * __NPM__: 6.14.16 o mayor
-
-Para verificar que versión tienen instalada:
-
-> node -v
->
-> npm -v
+ * __Node__: 12.18.3 or higher
+ * __NPM__: 6.14.16 or higher
 
 ## BoilerPlate
 
-El boilerplate cuenta con dos carpetas: `api` y `client`. En estas carpetas estará el código del back-end y el front-end respectivamente.
+The boilerplate has two folders: `api` and` client`. In these folders will be the code of the back-end and the front-end respectively.
 
-En `api` crear un archivo llamado: `.env` que tenga la siguiente forma:
+In `api` folder create a file called: `.env` that has the following form:
 
 ```
-DB_USER=usuariodepostgres
-DB_PASSWORD=passwordDePostgres
+DB_USER=postgresuser
+DB_PASSWORD=postgresPassword
 DB_HOST=localhost
 ```
 
-Reemplazar `usuariodepostgres` y `passwordDePostgres` con tus propias credenciales para conectarte a postgres. Este archivo va ser ignorado en la subida a github, ya que contiene información sensible (las credenciales).
+Replace `postgresuser` and `postgresPassword` with your own credentials to connect to postgres. This file will be ignored in the github upload, as it contains sensitive information (the credentials).
 
-Adicionalmente será necesario que creen desde psql una base de datos llamada `food`
+Additionally, it will be necessary to create a database called `food` from psql.
 
-El contenido de `client` fue creado usando: Create React App.
+The content of `client` was created using: Create React App. 
 
-## Enunciado
+## Statement
 
-La idea general es crear una aplicación en la cual se puedan ver distintas recetas de comida junto con información relevante de las mismas utilizando la api externa [spoonacular](https://spoonacular.com/food-api) y a partir de ella poder, entre otras cosas:
+The general idea is to create an application in which you can see different food recipes along with relevant information about them using the external api [spoonacular] (https://spoonacular.com/food-api) and from there, you can, among other things:
 
-  - Buscar recetas
-  - Filtrarlos / Ordenarlos
-  - Crear nuevas recetas propias
+   - Search recipes
+   - Filter / Sort them
+   - Create new own recipes 
 
-__IMPORTANTE__: Para poder utilizar esta API externa es necesario crearse una cuenta para obtener una API Key que luego debera ser incluida en todos los request que hagamos a spoonacular simplemente agregando `?apiKey={YOUR_API_KEY}` al final de cada endpoint. Agregar la clave en el archivo `.env` para que la misma no se suba al repositorio por cuestiones de seguridad y utilizarla desde allí. Por otro lado tienen un límite de requests por día por lo que usenlos con cuidado!
+__IMPORTANT__: In order to use this external API, it is necessary to create an account to obtain an API Key that must then be included in all requests that we make to spoonacular simply by adding `? ApiKey = {YOUR_API_KEY}` at the end of each endpoint. Add the key in the `.env` file so that it is not uploaded to the repository for security reasons and use it from there. On the other hand they have a limit of requests per day so use them carefully!
 
-__IMPORTANTE__: Para las funcionalidades de filtrado y ordenamiento NO pueden utilizar los endpoints de la API externa que ya devuelven los resultados filtrados u ordenados sino que deben realizarlo ustedes mismos. En particular alguno de los ordenamientos o filtrados debe si o si realizarse desde el frontend.
+__IMPORTANT__: For the filtering and sorting functionalities you cannot use the external API endpoints that already return the filtered or sorted results but you must do it yourself. In particular, some of the orders or filters must be done from the frontend. 
 
-### Únicos Endpoints/Flags que pueden utilizar
+### Only Endpoints/Flags you can use:
 
   * GET https://api.spoonacular.com/recipes/complexSearch
-    - Para obtener mayor información sobre las recetas, como por ejemplo el tipo de dieta deben agregar el flag `&addRecipeInformation=true` a este endpoint
-    - Para los tipos de dieta deben tener en cuenta las propiedades vegetarian, vegan, glutenFree por un lado y también analizar las que se incluyan dentro de la propiedad `diets`
+    - To obtain more information about the recipes, such the type of diet, add the flag `&addRecipeInformation=true` to this endpoint
+    - For the types of diet you must take into account the properties vegetarian, vegan, glutenFree on the one hand and also analyze those that are included within the property `diets` 
   * GET https://api.spoonacular.com/recipes/{id}/information
 
-### Requerimientos mínimos:
+### Minimum requirements:
 
-A continuación se detallaran los requerimientos mínimos para la aprobación del proyecto individial. Aquellos que deseen agregar más funcionalidades podrán hacerlo. En cuanto al diseño visual no va a haber wireframes ni prototipos prefijados sino que tendrán libertad de hacerlo a su gusto pero tienen que aplicar los conocimientos de estilos vistos en el curso para que quede agradable a la vista.
+The minimum requirements for the approval of the individual project are detailed below. Those who wish to add more functionality will be able to do so. Regarding the visual design, there will be no pre-set wireframes or prototypes, but they will be free to do it to their liking but they have to apply the knowledge of styles seen in the course so that it is pleasing to the eye. 
 
-__IMPORTANTE__: No se permitirá utilizar librerías externas para aplicar estilos a la aplicación. Tendrán que utilizar CSS con algunas de las opciones que vimos en dicha clase (CSS puro, CSS Modules o Styled Components)
+__IMPORTANT__: It will not be allowed to use external libraries to apply styles to the application. You will have to use CSS with some of the options that we saw in that class (pure CSS, CSS Modules or Styled Components) 
 
-#### Tecnologías necesarias:
+#### Necessary technologies :
 - [ ] React
 - [ ] Redux
 - [ ] Express
@@ -91,83 +86,83 @@ __IMPORTANTE__: No se permitirá utilizar librerías externas para aplicar estil
 
 #### Frontend
 
-Se debe desarrollar una aplicación de React/Redux que contenga las siguientes pantallas/rutas.
+A React / Redux application must be developed that contains the following screens / paths. 
 
-__Pagina inicial__: deben armar una landing page con
-- [ ] Alguna imagen de fondo representativa al proyecto
-- [ ] Botón para ingresar al home (`Ruta principal`)
+__Main Page__: you should put together a landing page with:
+- [ ] Some background image representative of the project
+- [ ] Button to enter home (`Main route`)
 
-__Ruta principal__: debe contener
-- [ ] Input de búsqueda para encontrar recetas por nombre
-- [ ] Área donde se verá el listado de recetas. Deberá mostrar su:
-  - Imagen
-  - Nombre
-  - Tipo de dieta (vegetariano, vegano, apto celíaco, etc)
-- [ ] Botones/Opciones para filtrar por por tipo de dieta
-- [ ] Botones/Opciones para ordenar tanto ascendentemente como descendentemente las recetas por orden alfabético y por puntuación
-- [ ] Paginado para ir buscando y mostrando las siguientes recetas, 9 recetas por pagina, mostrando las primeros 9 en la primer pagina.
+__Main Route__: must contain
+- [ ] Search input to find recipes by name
+- [ ] area where you will see the list of recipes. You must show your:
+  - Image
+  - Name
+  - Diet type (vegetarian, vegan, suitable for celiac disease, etc)
+- [ ] Buttons / Options to filter by diet type
+- [ ] Buttons / Options to sort recipes both in ascending and descending order by alphabetical order and by score
+- [ ] Paged to go searching and showing the following recipes, 9 recipes per page, showing the first 9 in the first page.
 
-__IMPORTANTE__: Dentro de la Ruta Principal se deben mostrar tanto las recetas traidas desde la API como así también las de la base de datos. Debido a que en la API existen alrededor de 5 mil recetas, por cuestiones de performance pueden tomar la simplificación de obtener y paginar las primeras 100.
+__IMPORTANT__: Within the Main Route, both the recipes brought from the API as well as those from the Database must be shown. Because there are around 5 thousand recipes in the API, for performance reasons they can simplify obtaining and paging the first 100.
 
-__Ruta de detalle de receta__: debe contener
-- [ ] Los campos mostrados en la ruta principal para cada receta (imagen, nombre, tipo de plato y tipo de dieta)
-- [ ] Resumen del plato
-- [ ] Puntuación
-- [ ] Nivel de "comida saludable"
-- [ ] Paso a paso
+__Recipe Detail Path__: must contain
+- [ ] The fields shown in the main path for each recipe (image, name, type of dish and type of diet)
+- [ ] Summary of the dish
+- [ ] Punctuation
+- [ ] Level of "healthy food"
+- [ ] Step by step
 
-__Ruta de creación de recetas__: debe contener
-- [ ] Un formulario __controlado__ con los siguientes campos
-  - Nombre
-  - Resumen del plato
-  - Puntuación
-  - Nivel de "comida saludable"
-  - Paso a paso
-- [ ] Posibilidad de seleccionar/agregar uno o más tipos de dietas
-- [ ] Botón/Opción para crear una nueva receta
+__Recipe Creation Path__: must contain
+- [ ] A __controlled__ form with the following fields
+  - Name
+  - Summary of the dish
+  - Punctuation
+  - Level of "healthy food"
+  - Step by step
+- [ ] Possibility of selecting / adding one or more types of diets
+- [ ] Button / Option to create a new recipe
 
-#### Base de datos
+#### Database
 
-El modelo de la base de datos deberá tener las siguientes entidades (Aquellas propiedades marcadas con asterisco deben ser obligatorias):
+The database model must have the following entities (Those properties marked with an asterisk must be mandatory): 
 
-- [ ] Receta con las siguientes propiedades:
+- [ ] Recipe with the following properties:
   - ID: *
-  - Nombre *
-  - Resumen del plato *
-  - Puntuación
-  - Nivel de "comida saludable"
-  - Paso a paso
-- [ ] Tipo de dieta con las siguientes propiedades:
+  - Name *
+  - Summary of the dish *
+  - Punctuation
+  - Level of "healthy food"
+  - Step by step
+- [ ] Type of diet with the following properties:
   - ID
-  - Nombre
+  - Name
 
-La relación entre ambas entidades debe ser de muchos a muchos ya que una receta puede ser parte de varios tipos de dieta en simultaneo y, a su vez, un tipo de dieta puede contener múltiples recetas distintas. Un ejemplo tomado de la API sería el `Strawberry Mango Green Tea Limeade` que es vegetariano, vegano y apto para celíacos, todo al mismo tiempo. Pero a su vez existen otras recetas para vegetarianos.
+The relationship between both entities must be many to many since a recipe can be part of several types of diet simultaneously and, in turn, one type of diet can contain multiple different recipes. An example taken from the API would be the `Strawberry Mango Green Tea Limeade` which is vegetarian, vegan and suitable for celiacs all at the same time. But at the same time there are other recipes for vegetarians. 
 
-__IMPORTANTE__: Pensar como modelar los IDs de las recetas en la base de datos. Existen distintas formas correctas de hacerlo pero tener en cuenta que cuando hagamos click en alguna receta, esta puede provenir de la API o de la Base de Datos por lo que cuando muestre su detalle no debería haber ambigüedad en cual se debería mostrar. Por ejemplo si en la API la receta `Strawberry Mango Green Tea Limeade` tiene id = 1 y en nuestra base de datos creamos una nueva receta `Medialunas de Manteca` con id = 1, ver la forma de diferenciarlas cuando querramos acceder al detalle de la misma.
+__IMPORTANT__: Think about how to model the recipe IDs in the database. There are different correct ways to do it, but keep in mind that when we click on a recipe, it can come from the API or the Database, so when it shows its detail there should be no ambiguity in which it should be shown. For example, if in the API the recipe `Strawberry Mango Green Tea Limeade` has id = 1 and in our database we create a new recipe` Medialunas de Manteca` with id = 1, see how to differentiate them when we want to access the detail of the same. 
 
 
 #### Backend
 
-Se debe desarrollar un servidor en Node/Express con las siguientes rutas:
+A server must be developed in Node / Express with the following paths: 
 
-__IMPORTANTE__: No está permitido utilizar los filtrados, ordenamientos y paginados brindados por la API externa, todas estas funcionalidades tienen que implementarlas ustedes.
+__IMPORTANT__: It is not allowed to use the filters, ordering and paging provided by the external API, all these functionalities have to be implemented by you. 
 
 - [ ] __GET /recipes?name="..."__:
-  - Obtener un listado de las recetas que contengan la palabra ingresada como query parameter
-  - Si no existe ninguna receta mostrar un mensaje adecuado
+  - Get a list of the recipes that contain the word entered as query parameter
+  - If there is no recipe show a suitable message 
 - [ ] __GET /recipes/{idReceta}__:
-  - Obtener el detalle de una receta en particular
-  - Debe traer solo los datos pedidos en la ruta de detalle de receta
-  - Incluir los tipos de dieta asociados
+  - Get the detail of a particular recipe
+  - You must bring only the data requested in the recipe detail path
+  - Include associated diet types 
 - [ ] __GET /types__:
-  - Obtener todos los tipos de dieta posibles
-  - En una primera instancia, cuando no exista ninguno, deberán precargar la base de datos con los tipos de datos indicados por spoonacular [acá](https://spoonacular.com/food-api/docs#Diets)
+  - Get all possible types of diet
+  - In the first instance, when none exists, they must preload the database with the data types indicated by spoonacular  [here](https://spoonacular.com/food-api/docs#Diets)
 - [ ] __POST /recipe__:
-  - Recibe los datos recolectados desde el formulario controlado de la ruta de creación de recetas por body
-  - Crea una receta en la base de datos
+  - Receive the data collected from the controlled form of the recipe creation route by body
+  - Create a recipe in the database 
 
 
 #### Testing
-- [ ] Al menos tener un componente del frontend con sus tests respectivos
-- [ ] Al menos tener una ruta del backend con sus tests respectivos
-- [ ] Al menos tener un modelo de la base de datos con sus tests respectivos
+- [ ] At least have a frontend component with its respective tests
+- [ ] At least have a backend path with its respective tests
+- [ ] At least have a database model with its respective tests 
